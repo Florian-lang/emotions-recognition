@@ -4,10 +4,16 @@ URL='https://storage.googleapis.com/kaggle-data-sets/2812806/4860972/bundle/arch
 ZIP_FILE="archive.zip"
 DESTINATION_DIR="dataset"
 
-curl -o "$ZIP_FILE" "$URL"
-mkdir -p "$DESTINATION_DIR"
-unzip -q "$ZIP_FILE" -d "$DESTINATION_DIR"
+if [ ! -e "$DESTINATION_DIR" ]; then
+    curl -o "$ZIP_FILE" "$URL"
+    mkdir -p "$DESTINATION_DIR"
+    unzip -q "$ZIP_FILE" -d "$DESTINATION_DIR"
 
-rm "$ZIP_FILE"
+    rm "$ZIP_FILE"
 
-echo "L'archive a été téléchargée, extraite dans le dossier 'dataset' et supprimée."
+    echo "L'archive a été téléchargée, extraite dans le dossier 'dataset' et supprimée."
+fi
+
+sh ./scripts/reset_dataset.sh
+
+
