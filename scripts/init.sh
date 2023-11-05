@@ -1,11 +1,31 @@
 #!/bin/bash
 
 DATASET_DIR="dataset"
-
 TRAIN_DIR="$DATASET_DIR/train"
-
 TEST_DIR="$DATASET_DIR/test"
 
+if [ ! -e "$DATASET_DIR" ]; then
+    ZIP_FILE="affectnet-training-data.zip"
+
+    kaggle datasets download -d noamsegal/affectnet-training-data
+    mkdir -p "$DATASET_DIR"
+    unzip -q "$ZIP_FILE" -d "$DATASET_DIR"
+
+    rm "$ZIP_FILE"
+
+    echo "L'archive a été téléchargée, extraite dans le dossier 'dataset' et supprimée."
+fi
+
+if [ -e "$TRAIN_DIR" ] || [ -e "$TEST_DIR" ]; then
+    rm -rf "$TRAIN_DIR"
+    rm -rf "$TEST_DIR"
+    echo "Les ensembles d'entraînement et de test ont été supprimés."
+
+else
+    echo "Les ensembles d'entraînement et de test n'existent pas."
+fi
+
+echo "Création des dossiers test et train en cours :"
 if [ -e "$TRAIN_DIR" ] || [ -e "$TEST_DIR" ]; then
     echo "Les ensembles d'entraînement et de test existent déjà."
     exit 1
@@ -31,7 +51,7 @@ for SUB_DIR in "$DATASET_DIR"/*; do
 
     progress=$((progress + 1))
     percentage=$((progress * 100 / file_count))
-    echo "Progress: $percentage%\r"
+    echo "Progress: $percentage"
 done
 
 echo "Le jeu de données a été divisé en ensembles d'entraînement et de test."

@@ -1,18 +1,31 @@
-# emotions-recognition
+# Documentation
+
+## requirement
+- obtenir le token sur 
+    > https://www.kaggle.com/settings/account
+- fichier kaggle.json téléchargé en même temps que la création du token.
+- il faut le gestionnaire de package python (pip)
 
 ## First Time
-En premier, Il faut utiliser la commande 
-> `chmod 777 scritpts/download_dataset.sh` 
+Etape 1 le dataset.
 
-pour élever les privilèges et pour pouvoir executer ce script. 
+- _Il faut se créer un compte sur kaggle.com afin de récupérer son token et son username._
+- Installer kaggle avec la commande :
+    > `pip install kaggle`
+- Déplacer le fichier kaggle.json dans ~/.kaggle
 
-Faire pareil sur les 2 autres fichiers ".sh" en cas de besoin.
+- Il faut utiliser la commande :
+    > `chmod 777 scritpts/init.sh` 
 
-Ensuite il faut setup notre dataset grâce à la commande inscrite dans la partie suivante.
+pour élever les privilèges et pour pouvoir executer ce script.  Faire pareil sur les 2 autres fichiers ".sh" en cas de besoin.
+
+- Setup notre dataset grâce à la commande inscrite dans la partie suivante.
 
 ## Setup du dataset
-Il faut executer la commande 
-> `./scripts/download_dataset.sh`
+Il faut executer la commande :
+> `./scripts/init.sh`
+
+Pour rénitialiser les data rééxécuter la commande ci-dessus.
 
 ## Docker
 **A réfléchir**
