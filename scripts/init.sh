@@ -51,7 +51,7 @@ for SUB_DIR in "$DATASET_DIR"/*; do
 
     progress=$((progress + 1))
     percentage=$((progress * 100 / file_count))
-    echo "Progress: $percentage"
+    echo -ne "Progress: $percentage% \r"
 done
 
 echo "Le jeu de données a été divisé en ensembles d'entraînement et de test."
