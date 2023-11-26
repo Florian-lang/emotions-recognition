@@ -7,3 +7,5 @@ services:
       context: .
       dockerfile: ./Dockerfile
     command: python3 main.py
+    volumes:
+      - .:/app
