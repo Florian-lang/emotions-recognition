@@ -1,57 +1,41 @@
 # Documentation
 
-## requirement
-- obtenir le token sur 
-    > https://www.kaggle.com/settings/account
-- fichier kaggle.json téléchargé en même temps que la création du token.
-- il faut le gestionnaire de package python (pip)
+## Configuration 
+- Installer le gestionnaire pip des packages python :
+    > `sudo apt update` 
 
-## First Time
-Etape 1 le dataset.
+    > `sudo apt install python3-pip`
 
-- _Il faut se créer un compte sur kaggle.com afin de récupérer son token et son username._
-- Installer kaggle avec la commande :
-    > `pip install kaggle`
-- Déplacer le fichier kaggle.json dans ~/.kaggle
+- Créer un compte kaggle afin de pouvoir télécharger le dataset : https://www.kaggle.com/
 
-- Il faut utiliser la commande :
-    > `chmod 777 scritpts/init.sh` 
+- Se rendre dans les paramètres de votre compte : https://www.kaggle.com/settings
 
-pour élever les privilèges et pour pouvoir executer ce script.  Faire pareil sur les 2 autres fichiers ".sh" en cas de besoin.
+- Descendre dans la troisième section de la page nommée API et cliquer sur "Create New Token".
+Un fichier kaggle.json sera téléchargé
 
-- Setup notre dataset grâce à la commande inscrite dans la partie suivante.
+- Vérifier si le dossier kaggle existe en faisant la commande :
+    > `ls -l ~/.kaggle`
 
-## Setup du dataset
-Il faut executer la commande :
-> `./scripts/init.sh`
+- Si le répertoire existe vous pouvez insérer votre fichier kaggle.json à l'emplacement suivant 
+    > `cp 'chemin vers la position actuelle de votre kaggle.json' '~/.kaggle/kaggle.json'`
 
-Pour rénitialiser les data rééxécuter la commande ci-dessus.
+- Si le répertoire n'existe pas faite la commande :
+    > `mkdir ~/.kaggle`
 
-## Docker
-**A réfléchir**
+    > `cp 'chemin vers la position actuelle de votre kaggle.json' '~/.kaggle/kaggle.json'`
 
-Il n'est pas nécessaire d'utiliser Docker mais si ça vous chante voici ce qu'il faut faire :
+## Télécharger le dataset
+- Positionnez vous dans le répertoire du projet 'emotions-recognition' et faite la commande :
+    > `./scripts/init.sh`
 
-1/ Download Docker Desktop sur internet
+- Si vous rencontrez des problèmes à lancer le script, faite la commande :
+    > `sudo chmod 777 scritpts/init.sh`
 
-2/ Utiliser la commande suivante pour lancer le conteneur avec le script de l'IA : 
->`docker-compose up` -> tout se lance automatiquement
+- Attendez que le terminal vous infome que "Le jeu de données a été divisé en ensembles d'entraînement et de test."
 
-3/ Pour arrêter et supprimer le conteneur lancé 
-> `docker-compose down`
+## Exécuter l'applicaiton
+- Pour lancer le projet vous devez avoir docker d'installé sur votre machine
 
- une fois que tout s'est terminé
-
-4/ Il faut aussi supprimer l'image dans le logiciel docker desktop.
-
-
-## Documentation
-- Pour télécharger le dataset on lance la commande 
-> `./script/download_dataset.sh`
-- Pour créer nos dossiers test et train on lance la commande 
-> `./script/split_dataset.sh`
-- Pour reset le dataset lancer la commande 
-> `./scripts/reset_dataset.sh`
-
-**A savoir :** Le fonctionnement est entièrement automatisé tous les scripts s'appellent entre eux. Juste executer "download_dataset.sh"
+- Lorsque votre docker a démarré, rentrez la commande :
+    > `docker compose up`
 
