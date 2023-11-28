@@ -39,14 +39,24 @@ progress=0
 
 for SUB_DIR in "$DATASET_DIR"/*; do
 
+    emotion=$(basename "$SUB_DIR" | cut -d'_' -f1)
+
     if [ -d "$SUB_DIR" ] && [ "$SUB_DIR" != "$TRAIN_DIR" ] && [ "$SUB_DIR" != "$TEST_DIR" ]; then
         TOTAL_FILES=$(find "$SUB_DIR" -type f | wc -l)
         
         TEST_COUNT=$((TOTAL_FILES * 20 / 100))
         
-        ls "$SUB_DIR" | sort -R | head -n $((TOTAL_FILES - TEST_COUNT)) | xargs -I {} cp "$SUB_DIR/{}" "$TRAIN_DIR"
+        if [ ! -d "$TEST_DIR/$emotion" ]; then
+            mkdir -p "$TEST_DIR/$emotion"
+        fi
+
+        if [ ! -d "$TRAIN_DIR/$emotion" ]; then
+            mkdir -p "$TRAIN_DIR/$emotion"
+        fi
+
+        ls "$SUB_DIR" | sort -R | head -n $((TOTAL_FILES - TEST_COUNT)) | xargs -I {} cp "$SUB_DIR/{}" "$TRAIN_DIR/$emotion"
         
-        ls "$SUB_DIR" | sort -R | head -n $TEST_COUNT | xargs -I {} cp "$SUB_DIR/{}" "$TEST_DIR"
+        ls "$SUB_DIR" | sort -R | head -n $TEST_COUNT | xargs -I {} cp "$SUB_DIR/{}" "$TEST_DIR/$emotion"
     fi
 
     progress=$((progress + 1))
