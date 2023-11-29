@@ -3,23 +3,28 @@ from keras.layers import Dense, GlobalAveragePooling2D
 from keras.models import Model
 from keras.preprocessing.image import ImageDataGenerator
 
+# Création de paginateur pour récupérer les images en nuances de gris
 train_datagen = ImageDataGenerator(rescale=1./255)
 test_datagen = ImageDataGenerator(rescale=1./255)
 
+# Création des données de d'entrainement
 train_generator = train_datagen.flow_from_directory(
         'dataset/train',
         target_size=(224, 224),
         batch_size=32,
         class_mode='categorical')
 
+# Création des données de test
 validation_generator = test_datagen.flow_from_directory(
         'dataset/test',
         target_size=(224, 224),
         batch_size=32,
         class_mode='categorical')
 
+# Création du modèle
 base_model = MobileNet(weights='imagenet', include_top=False)
 
+# On ajoute les couches de classification
 x = base_model.output
 x = GlobalAveragePooling2D()(x)
 
@@ -29,13 +34,16 @@ predictions = Dense(train_generator.num_classes, activation='softmax')(x)
 
 model = Model(inputs=base_model.input, outputs=predictions)
 
+# On compile le modèle notre optimiseur, notre fonction de perte et nos métriques
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
+# Entrainement du modèle
 model.fit(
-    train_generator,
-    steps_per_epoch=train_generator.samples // train_generator.batch_size,
-    epochs=10,
-    validation_data=validation_generator,
-    validation_steps=validation_generator.samples // validation_generator.batch_size)
+        train_generator,
+        steps_per_epoch=train_generator.samples // train_generator.batch_size,
+        epochs=10,
+        validation_data=validation_generator,
+        validation_steps=validation_generator.samples // validation_generator.batch_size)
 
+# Sauvegarde du modèle
 model.save('emotion_recognition_model.h5')
