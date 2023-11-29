@@ -7,22 +7,22 @@ from keras.preprocessing.image import ImageDataGenerator
 train_datagen = ImageDataGenerator(rescale=1./255)
 test_datagen = ImageDataGenerator(rescale=1./255)
 
-# Création des données de d'entrainement
+# Création des données d'entrainement
 train_generator = train_datagen.flow_from_directory(
         'dataset/train',
-        target_size=(224, 224),
+        target_size=(96, 96),
         batch_size=32,
         class_mode='categorical')
 
 # Création des données de test
 validation_generator = test_datagen.flow_from_directory(
         'dataset/test',
-        target_size=(224, 224),
+        target_size=(96, 96),
         batch_size=32,
         class_mode='categorical')
 
 # Création du modèle
-base_model = MobileNet(weights='imagenet', include_top=False)
+base_model = MobileNet(weights='imagenet', include_top=False, input_shape=(96, 96, 3))
 
 # On ajoute les couches de classification
 x = base_model.output
@@ -43,7 +43,9 @@ model.fit(
         steps_per_epoch=train_generator.samples // train_generator.batch_size,
         epochs=10,
         validation_data=validation_generator,
-        validation_steps=validation_generator.samples // validation_generator.batch_size)
+        validation_steps=validation_generator.samples // validation_generator.batch_size,
+        verbose=2
+)
 
 # Sauvegarde du modèle
 model.save('emotion_recognition_model.h5')

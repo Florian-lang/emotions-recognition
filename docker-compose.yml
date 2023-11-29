@@ -6,6 +6,6 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: python3 TrainMobileNet.py
+    command: python3 train.py
     volumes:
       - .:/app
