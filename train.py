@@ -3,7 +3,7 @@ from keras.layers import Dense, GlobalAveragePooling2D
 from keras.models import Model
 from keras.preprocessing.image import ImageDataGenerator
 
-# Création de paginateur pour récupérer les images en nuances de gris
+# Création de paginateur pour normaliser les pixels entre 0 et 1
 train_datagen = ImageDataGenerator(rescale=1./255)
 test_datagen = ImageDataGenerator(rescale=1./255)
 
@@ -32,6 +32,7 @@ x = Dense(1024, activation='relu')(x)
 
 predictions = Dense(train_generator.num_classes, activation='softmax')(x)
 
+# On définit le modèle custom
 model = Model(inputs=base_model.input, outputs=predictions)
 
 # On compile le modèle notre optimiseur, notre fonction de perte et nos métriques
