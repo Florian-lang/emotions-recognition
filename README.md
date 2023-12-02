@@ -6,6 +6,17 @@
 
     > `sudo apt install python3-pip`
 
+- Installer le cli de kaggle en faisant la commande :
+    > `pip install kaggle`
+
+- Ajouter la commande dans la variable $PATH :
+    > `export PATH=$PATH:~/.local/bin`
+
+    > `source ~/.bashrc`
+
+- Installer unzip :
+    > `sudo apt install unzip`
+
 - Créer un compte kaggle afin de pouvoir télécharger le dataset : https://www.kaggle.com/
 
 - Se rendre dans les paramètres de votre compte : https://www.kaggle.com/settings
@@ -16,13 +27,23 @@ Un fichier kaggle.json sera téléchargé
 - Vérifier si le dossier kaggle existe en faisant la commande :
     > `ls -l ~/.kaggle`
 
+## Utilisation de WSL
+- Si vous utilisez WSL, vous pouvez déplacer directetement le dossier en utilisant l'explorateur de fichier dans le répertoire :
+    > `Votre_distribution/home/nom_utilisateur/.kaggle`
+
+- Si le répertoire n'existe pas faite la commande suivante :
+    > `mkdir ~/.kaggle`
+
+    > `Votre_distribution/home/nom_utilisateur/.kaggle`
+
+## Sans l'utilisation de WSL
 - Si le répertoire existe vous pouvez insérer votre fichier kaggle.json à l'emplacement suivant 
-    > `cp 'chemin vers la position actuelle de votre kaggle.json' '~/.kaggle/kaggle.json'`
+    > `cp [chemin vers la position actuelle de votre kaggle.json] [~/.kaggle/kaggle.json]`
 
 - Si le répertoire n'existe pas faite la commande :
     > `mkdir ~/.kaggle`
 
-    > `cp 'chemin vers la position actuelle de votre kaggle.json' '~/.kaggle/kaggle.json'`
+    > `cp [chemin vers la position actuelle de votre kaggle.json] [~/.kaggle/kaggle.json]`
 
 ## Télécharger le dataset
 - Positionnez vous dans le répertoire du projet 'emotions-recognition' et faite la commande :
@@ -37,5 +58,5 @@ Un fichier kaggle.json sera téléchargé
 - Pour lancer le projet vous devez avoir docker d'installé sur votre machine
 
 - Lorsque votre docker a démarré, rentrez la commande :
-    > `docker compose up`
+    > `sudo docker compose up`
 
