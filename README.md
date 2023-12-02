@@ -58,5 +58,5 @@ Un fichier kaggle.json sera téléchargé
 - Pour lancer le projet vous devez avoir docker d'installé sur votre machine
 
 - Lorsque votre docker a démarré, rentrez la commande :
-    > `docker compose up`
+    > `sudo docker compose up`
 
