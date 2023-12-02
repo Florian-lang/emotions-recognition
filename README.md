@@ -24,6 +24,10 @@ Un fichier kaggle.json sera téléchargé
 
     > `cp 'chemin vers la position actuelle de votre kaggle.json' '~/.kaggle/kaggle.json'`
 
+## Installer Kaggle
+- Faire la commande :
+    > `pip install kaggle`
+
 ## Télécharger le dataset
 - Positionnez vous dans le répertoire du projet 'emotions-recognition' et faite la commande :
     > `./scripts/init.sh`

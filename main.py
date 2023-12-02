@@ -5,7 +5,7 @@ from keras.applications.vgg16 import preprocess_input
 
 model = load_model('emotion_recognition_model.h5')
 
-emotionLabels = ['Colere', 'Mepris', 'Degout', 'Peur', 'Heureux', 'Neutre', 'Triste', 'Surprise']
+emotionLabels = ['Anger', 'Contempt', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
 
 cap = cv2.VideoCapture(0)
 
