@@ -1,4 +1,10 @@
 - [x] Charger les données en générant les données de test, d'entrainement et de validation avec un script bash
-- [ ] Choix du modèle de transfert learning : (https://keras.io/api/applications/)
-- [ ] Prétraiter tes données en fonction de ce que veut le modèle
-- [ ] Normaliser les données floue et noir et blanc (grayscale)
+- [x] Choix du modèle de transfert learning : (https://keras.io/api/applications/)
+- [x] Prétraiter tes données en fonction de ce que veut le modèle
+- [x] Normaliser les données floue et noir et blanc (grayscale)
+- [ ] Ajouter des scripts de test qui affichent : l'image testée, la prédiction (l'émotion) et le pourcentage d'accuracy
+- [ ] Faire fonctionner le GPU localement
+- [ ] Ajouter une documentation pour Nvidia et Mac M1/2/3
+- [ ] Tester et utiliser d'autres modèles
+- [ ] Utiliser docker pour l'affichage de la caméra
+- [ ] Utiliser le GPU dans docker
