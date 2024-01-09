@@ -9,7 +9,12 @@ ENV PYTHONUNBUFFERED=1
 
 # Install pip requirements
 COPY requirements.txt .
-RUN apt update && apt-get install curl -y && apt-get install unzip -y
+
+RUN apt-get update 
+RUN apt-get install curl -y 
+RUN apt-get install unzip -y
+RUN apt-get install -y libgl1-mesa-glx
+RUN apt-get install -y libglib2.0-0
 RUN python -m pip install -r requirements.txt
 
 WORKDIR /app
