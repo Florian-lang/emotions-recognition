@@ -26,7 +26,7 @@ Un fichier kaggle.json sera téléchargé
 
 ## Télécharger le dataset
 - Positionnez vous dans le répertoire du projet 'emotions-recognition' et faite la commande :
-    > `./scripts/init.sh`
+    > `./bin/init.sh`
 
 - Si vous rencontrez des problèmes à lancer le script, faite la commande :
     > `sudo chmod 777 scritpts/init.sh`
