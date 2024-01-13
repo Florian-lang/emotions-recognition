@@ -1,0 +1,4 @@
+- [x] Charger les données en générant les données de test, d'entrainement et de validation avec un script bash
+- [x] Choix du modèle de transfert learning : (https://keras.io/api/applications/)
+- [x] Prétraiter tes données en fonction de ce que veut le modèle
+- [x] Normaliser les données floue et noir et blanc (grayscale)

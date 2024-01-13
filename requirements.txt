@@ -3,4 +3,5 @@ tensorflow
 Pillow
 scipy
 opencv-python
+flake8
 tk
