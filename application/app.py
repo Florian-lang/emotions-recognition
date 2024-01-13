@@ -3,7 +3,7 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 import cv2
 import read as Rd
-import main as mn 
+import camera as camera 
 
 def openImage():
     filePath = filedialog.askopenfilename(title="Sélectionner une image", filetypes=[("Image files", "*.png;*.jpg;*.jpeg;")])
@@ -53,7 +53,7 @@ def showVideo(filePath):
     updateVideo()
 
 def openCamera():
-    mn.openCamera()
+    camera.openCamera()
 
 # Créer une fenêtre Tkinter
 fenetre = tk.Tk()

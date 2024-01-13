@@ -49,11 +49,3 @@ def detect_visage(frame):
 
         except:
             print('Une erreur est survenue ! Veuillez réessayer')
-
-# Afficher le résultat sur l'image
-# Afficher l'image avec le résultat
-#cv2.imshow('Emotion Recognition', frame)
-#cv2.waitKey(0)  # Attendez une touche avant de fermer la fenêtre
-
-# Fermer la fenêtre OpenCV
-#cv2.destroyAllWindows()
