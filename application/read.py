@@ -24,9 +24,10 @@ def emotion_on_image(image_path, frame=None):
     # Prédire l'émotion
     emotion_prediction = model.predict(expanded_face_dimension)
     emotion_name = emotion_labels[np.argmax(emotion_prediction)]
-    if detect_visage(frame) is False :
-         emotion_name = "Aucun visage détecté"
-         
+
+    if detect_visage(frame) is False:
+        emotion_name = "Aucun visage détecté"
+
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     return Image.fromarray(frame_rgb), emotion_name
@@ -35,10 +36,9 @@ def emotion_on_image(image_path, frame=None):
 def detect_visage(frame):
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     faces = face_cascade.detectMultiScale(frame, 1.3, 5)
- 
 
     for (x, y, w, h) in faces:
-        capturedFace = frame[y:y+h, x:x+w]
+        capturedFace = frame[y:y + h, x:x + w]
 
         resizedFace = cv2.resize(capturedFace, (96, 96))
         reshapeFace = preprocess_input(resizedFace).reshape(96, 96, 3)
@@ -48,8 +48,8 @@ def detect_visage(frame):
 
         emotionName = emotion_labels[np.argmax(emotion)]
 
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 5)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 5)
 
-        cv2.putText(frame, emotionName, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        cv2.putText(frame, emotionName, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-    return True;
+    return True
