@@ -10,12 +10,21 @@
     > `pip install kaggle`
 
 - Ajouter la commande dans la variable $PATH :
+    - Pour Linux :
     > `export PATH=$PATH:~/.local/bin`
 
     > `source ~/.bashrc`
 
+    - Pour MacOs :
+    > `export PATH="$PATH:~/Library/Python/3.9/bin"`
+    > `source ~/.zshrc`
+
 - Installer unzip :
+    - Pour Linux :
     > `sudo apt install unzip`
+
+    - Pour MacOs :
+    > `brew install unzip`
 
 - Créer un compte kaggle afin de pouvoir télécharger le dataset : https://www.kaggle.com/
 
@@ -45,16 +54,13 @@ Un fichier kaggle.json sera téléchargé
 
     > `cp [chemin vers la position actuelle de votre kaggle.json] [~/.kaggle/kaggle.json]`
 
-## Installer Kaggle
-- Faire la commande :
-    > `pip install kaggle`
 
 ## Télécharger le dataset
 - Positionnez vous dans le répertoire du projet 'emotions-recognition' et faite la commande :
     > `./bin/init.sh`
 
 - Si vous rencontrez des problèmes à lancer le script, faite la commande :
-    > `sudo chmod 777 scritpts/init.sh`
+    > `sudo chmod 777 bin/init.sh`
 
 - Attendez que le terminal vous infome que "Le jeu de données a été divisé en ensembles d'entraînement et de test."
 

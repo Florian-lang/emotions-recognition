@@ -58,4 +58,4 @@ model.fit(
 )
 
 # Sauvegarde du modèle
-model.save('data/emotion_recognition_model.h5')
+model.save('data/emotion_recognition_model.keras')

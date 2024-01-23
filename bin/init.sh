@@ -66,11 +66,6 @@ done
 
 echo "Le jeu de données a été divisé en ensembles d'entraînement et de test."
 
-echo "Intallation des dépendances en cours :"
-pip install -r requirements.txt
 
-echo "Initialisation des hooks en cours :"
-chmod +x bin/create_pre_commit_hook.sh
-bash bin/create_pre_commit_hook.sh
 
 echo "Initialisation terminée."
