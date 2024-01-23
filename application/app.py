@@ -22,7 +22,7 @@ def open_video():
 
 
 def show_image(img):
-    img.thumbnail((900, 900))
+    img.thumbnail((300, 300))
     img = ImageTk.PhotoImage(img)
 
     # Afficher l'image dans une fenêtre Tkinter
@@ -63,25 +63,31 @@ def open_camera():
 
 # Créer une fenêtre Tkinter
 fenetre = tk.Tk()
-fenetre.geometry("300x300")
+fenetre.geometry("500x400")
 fenetre.title("Sélection d'image et de vidéo")
+frame_boutons = tk.Frame(fenetre)
+frame_boutons.pack(side=tk.LEFT, padx=10)
 
 # Bouton pour insérer une image
-btnImage = tk.Button(fenetre, text="Insérer une image", command=open_image)
+btnImage = tk.Button(frame_boutons, text="Insérer une image", command=open_image)
 btnImage.pack(pady=10)
 
 # Bouton pour ouvrir une vidéo
-btnVideo = tk.Button(fenetre, text="Ouvrir une vidéo", command=open_video)
+btnVideo = tk.Button(frame_boutons, text="Ouvrir une vidéo", command=open_video)
 btnVideo.pack(pady=10)
 
-btnCamera = tk.Button(fenetre, text="Ouvrir la camera", command=open_camera)
+btnCamera = tk.Button(frame_boutons, text="Ouvrir la camera", command=open_camera)
 btnCamera.pack(pady=10)
 
 # Label pour afficher l'image ou la vidéo
-imgLabel = tk.Label(fenetre)
+# Frame pour l'image à droite
+frame_image = tk.Frame(fenetre,borderwidth=2,relief="solid")
+frame_image.pack(side=tk.RIGHT, padx=10)
+
+imgLabel = tk.Label(frame_image,borderwidth=2,relief="solid",width=200,height=200)
 imgLabel.pack()
 
-emotionNameLabel = tk.Label(fenetre)
+emotionNameLabel = tk.Label(frame_image)
 emotionNameLabel.pack()
 
 # Lancer la boucle principale Tkinter

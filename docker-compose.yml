@@ -8,4 +8,4 @@ services:
       dockerfile: ./Dockerfile
     command: python3 train.py
     volumes:
-      - .:/app
+      - .:/app/train

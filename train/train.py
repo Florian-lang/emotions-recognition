@@ -1,7 +1,7 @@
-from keras.applications import MobileNet
 from keras.layers import Dense, GlobalAveragePooling2D
 from keras.models import Model
 from keras.preprocessing.image import ImageDataGenerator
+from keras.applications.xception import Xception
 
 # Création de paginateur pour normaliser les pixels entre 0 et 1
 train_datagen = ImageDataGenerator(rescale=1. / 255)
@@ -22,7 +22,7 @@ validation_generator = test_datagen.flow_from_directory(
     class_mode='categorical')
 
 # Création du modèle
-base_model = MobileNet(
+base_model = Xception(
     weights='imagenet',
     include_top=False,
     input_shape=(96, 96, 3)

@@ -17,7 +17,7 @@ def emotion_on_image(image_path, frame=None):
         frame = cv2.imread(image_path)
 
     # Traiter l'image (resize, prétraitement, etc. selon les besoins)
-    resized_face = cv2.resize(frame, (96, 96))  # Ajuster la taille selon les besoins
+    resized_face = cv2.resize(frame, (96, 96)) 
     processed_face = preprocess_input(resized_face).reshape(96, 96, 3)
     expanded_face_dimension = np.expand_dims(processed_face, axis=0)
 
