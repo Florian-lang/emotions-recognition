@@ -58,7 +58,7 @@ def show_video(file_path):
 
 
 def open_camera():
-    camera.openCamera()
+    camera.open_camera()
 
 
 # Créer une fenêtre Tkinter
