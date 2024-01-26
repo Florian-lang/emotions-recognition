@@ -6,7 +6,7 @@ from PIL import Image
 
 
 # Charger le modèle d'émotion
-model = load_model('data/emotion_recognition_model.h5')
+model = load_model('data/mobilenet.keras')
 
 # Étiquettes d'émotion
 emotion_labels = ['Anger', 'Contempt', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
