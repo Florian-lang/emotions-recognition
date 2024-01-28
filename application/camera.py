@@ -3,7 +3,7 @@ import numpy as np
 from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
 
-model = load_model('data/emotion_recognition_model.h5')
+model = load_model('data/mobilenet.keras')
 
 emotionLabels = ['Anger', 'Contempt', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
 
