@@ -26,11 +26,14 @@ def open_camera():
 
             emotion = model.predict(expended_face_dimenssion)
 
-            emotion_name = emotionLabels[np.argmax(emotion)]
+            emotion_name = emotionLabels[np.argmax(emotion)];
+            emotion_purcentage = "Precision : " + str(round(np.max(emotion)*100,2))+" %";
 
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
             cv2.putText(frame, emotion_name, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+            cv2.putText(frame, emotion_purcentage, (x,y + h + 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+
 
         cv2.imshow('Emotion Recognition', frame)
 

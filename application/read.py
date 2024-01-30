@@ -23,8 +23,8 @@ def emotion_on_image(image_path, frame=None):
 
     # Prédire l'émotion
     emotion_prediction = model.predict(expanded_face_dimension)
-    emotion_name = emotion_labels[np.argmax(emotion_prediction)]
-
+    emotion_name = emotion_labels[np.argmax(emotion_prediction)] + " " + str(round(np.max(emotion_prediction)*100,2))+" %";
+    
     if detect_visage(frame) is False:
         emotion_name = "Aucun visage détecté"
 
