@@ -24,7 +24,7 @@ def open_image():
 
 
 def open_video():
-    selected_file_path = filedialog.askopenfilename(title="Sélectionner une vidéo", filetypes=[("Video files", "*.mp4;*.avi")])
+    selected_file_path = filedialog.askopenfilename(title="Sélectionner une vidéo", filetypes=[("Video files", "*.mp4"),("Video files", "*.mov")])
     if selected_file_path:
         show_video(selected_file_path)
 
