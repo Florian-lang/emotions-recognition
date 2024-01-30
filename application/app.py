@@ -20,7 +20,7 @@ def open_image():
         emotion, emotion_name = Rd.emotion_on_image(selected_file_path)
         show_image(emotion)
         emotionNameLabel.configure(text=emotion_name)
-        emotionNameLabel.text = emotion_name
+        emotionNameLabel.text = emotion_name 
 
 
 def open_video():
